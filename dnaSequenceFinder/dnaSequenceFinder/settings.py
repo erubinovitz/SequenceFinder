@@ -56,7 +56,7 @@ ROOT_URLCONF = 'dnaSequenceFinder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["dnaSequenceFinder/templates/"],
+        'DIRS': ["dnaSequenceFinder/dnaSequenceFinder/templates/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
