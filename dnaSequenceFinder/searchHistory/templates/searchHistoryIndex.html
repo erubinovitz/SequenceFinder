@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>Searches</h1>
+<div class="row">
+{% for search in searches %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+
+            <div class="card-body">
+                <h5 class="card-title">Searched Sequence: {{ search.sequence }}</h5>
+                <p class="card-text">Protein found: {{ search.proteinName }}</p>
+				{% if search.proteinIndex > -1 %}
+                <p class="card-text"> Index: {{ search.proteinIndex }}</p>
+				{% else %}
+				<p class="card-text"> Index: N/A</p>
+				{% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
