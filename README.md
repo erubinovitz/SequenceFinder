@@ -7,7 +7,7 @@ the index that it was found. If not, it informs the user that no matching string
 
 On the front page, the user can see all  searches that he or she has made, with the searches sustaining even if the windows are closed
 (they will be removed if cookies are cleared). The user can also go to the search history page to see all searches made by all users, 
-along with the proper information. These searches are stored on the server and as such will sustain regardless of cookies.
+along with the proper information. These searches are stored on the server and as such will sustain regardless of cookies, and will not be lost on restart.
 
 To run, cd to SequenceFinder/dnaSequenceFinder in your command prompt, and enter
 $python manage.py runserver
