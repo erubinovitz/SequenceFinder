@@ -10,7 +10,11 @@ On the front page, the user can see all  searches that he or she has made, with 
 along with the proper information. These searches are stored on the server and as such will sustain regardless of cookies, and will not be lost on restart.
 
 To run, cd to SequenceFinder/dnaSequenceFinder in your command prompt, and enter
-$python manage.py runserver
+```
+$ python manage.py runserver
+```
 If Django is not installed, be sure to run 
+```
 $ pip install Django
+```
 beforehand.
