@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+
 
 {% block page_content %}
 
@@ -13,9 +13,10 @@
             {{ form.sequence}}
 			
         </div>
-         <p class="text_field" id = 'sequenceList'>Searched String | Found String | Index Spotted<br></p>
+         <p class="text_field" id = 'sequenceList' >Searched String | Found String | Index Spotted<br></p>
         <button type="submit" class="btn btn-primary">Submit</button>
     <script>
+
         var seqName = "{{sequenceName}}";
         if (seqName!=""&&seqName!=null){ // if we have values to show
             var proteinName = "{{proteinName}}";
@@ -27,7 +28,14 @@
 <a href="/searchHistory">See previous searches</a>
 	
 <script>
-/*On load page, display all sequences (if we have any)*/
+
+    /*Set input box to have no max length, allowing for large sequences*/
+    let i=0;
+    let forms = document.getElementsByClassName("form-control");
+    for (i=0; i<forms.length; i++){
+        forms[i].removeAttribute("maxLength");
+    }
+    /*On load page, display all sequences (if we have any)*/
     var savedSequences = localStorage.getItem("sequences");
     if (savedSequences!=null)
         addSequence(savedSequences);

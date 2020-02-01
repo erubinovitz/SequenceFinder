@@ -2,6 +2,7 @@
 function addSequence(sequence){
 	document.getElementById("sequenceList").innerHTML=(document.getElementById("sequenceList").innerHTML + sequence);
 	console.log("here");
+
 }
 
 function getFormData(seqName,proteinName,proteinIndex){

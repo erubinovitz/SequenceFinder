@@ -1,17 +1,29 @@
+import glob, os
+
+
 from searchHistory.models import Search
 def findProtein(sequence):
-	file = open("homePage/proteinList.txt","r");
-	proteinList = file.readlines();
-
-	for protein in proteinList:
+	sequence=sequence.replace(" ","");
+	sequence=sequence.upper()
+	proteinDirectory = "homePage/Proteins/"
+	for file in glob.glob(proteinDirectory+"*.txt"):
+		infile=open(file,"r");
+		protein =("".join(infile.readlines())).replace("\\n","").replace('\n', '')
+		#print("seq is ",sequence,"protein is ",protein[0:100])
 		if sequence in protein:
+			print("yes")
 			index = protein.index(sequence);
+			proteinName=infile.name
+			lastSlashIndex=proteinName.rindex("\\")
+			proteinName=proteinName[lastSlashIndex+1:len(proteinName)-4] #cutout opening path and .txt
 			seq = Search(
 				sequence=sequence,
-				proteinName=protein.strip(),
+				proteinName=proteinName,
 				proteinIndex=index,
 			)
+			#print("seq is ",sequence, "name is ",proteinName,"index is ",index)
 			return seq;
+	print("not found")
 	seq = Search(
 		sequence=sequence,
 		proteinName="None found.",
